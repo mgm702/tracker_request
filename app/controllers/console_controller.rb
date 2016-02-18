@@ -21,10 +21,22 @@ class ConsoleController < ApplicationController
 
   def branch 
     @branch = Branch.where(id: params[:id]).first
+    @branch_repo = Repository.where(id: "#{@branch.repository_id}").first
   end
 
   def pull 
     @pull_request = PullRequest.where(id: params[:id]).first
+    @branch = Repository.find("#{@pull_request.repository_id}").branches
+    @pull_request_comments = PullRequestComment.where(repository_id: "#{@pull_request.repository_id}").find_each
+  end
+
+  def projectinfo
+    @project = Project.where(id: params[:id]).first
+  end
+
+  def story
+    @story = Story.where(id: params[:id]).first
+    @comments = TrackerComment.where(story_id: @story.id)
   end
 
   private 
@@ -38,5 +50,6 @@ class ConsoleController < ApplicationController
   def pivotal_background_jobs
     Resque.enqueue(ProjectImportWorker, current_user.id)
     Resque.enqueue(StoryImportWorker, current_user.id)
+    Resque.enqueue(TrackerCommentImportWorker, current_user.id)
   end
 end
