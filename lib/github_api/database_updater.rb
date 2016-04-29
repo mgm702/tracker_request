@@ -33,13 +33,12 @@ class GithubApi::Database_Updater
 
   def branch_matcher(api_ids, repo_ids)
     branches = Branch.where(repository_id: repo_ids).select([:latest_commit_sha, :branch_name])
-    branch_commit_sha = []
+    branch_commit_sha, branch_names, branch_commit_shas = Array.new(3) {[]}
     branches.each {|x| branch_commit_sha << "#{x.branch_name} #{x.latest_commit_sha}"}
     branch_delete_array = branch_commit_sha - api_ids
-    branch_names = []
-    branch_commit_shas = []
     branch_delete_array.each {|x| branch_names << x.split(/\s/).first}
     branch_delete_array.each {|x| branch_commit_shas << x.split(/\s/).last}
+    Branch.where.not(repository_id: repo_ids).destroy_all
     Branch.where(branch_name: branch_names,latest_commit_sha: branch_commit_shas).destroy_all
   end
 
@@ -47,6 +46,7 @@ class GithubApi::Database_Updater
     pull_requests = PullRequest.where(repository_id: repo_ids).select([:pr_github_ident])
     pr_github_array = []
     pull_requests.each {|x| pr_github_array << x.pr_github_ident}
+    PullRequest.where.not(repository_id: repo_ids).destroy_all
     PullRequest.where(pr_github_ident: pr_github_array - api_ids).destroy_all
   end
 
@@ -54,6 +54,7 @@ class GithubApi::Database_Updater
     pull_request_comments = PullRequestComment.where(repository_id: repo_ids).select([:pr_comment_github_ident])
     pr_comment_github_array = []
     pull_request_comments.each {|x| pr_comment_github_array << x.pr_comment_github_ident }
+    PullRequestComment.where.not(repository_id: repo_ids).destroy_all
     PullRequestComment.where(pr_comment_github_ident: pr_comment_github_array - api_ids).destroy_all
   end
 end
