@@ -1,5 +1,5 @@
 #require 'capybara/rspec'
-#require 'webmock/rspec'
+require 'webmock/rspec'
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -7,6 +7,10 @@ RSpec.configure do |config|
 
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
+  end
+
+  config.before(:each) do
+    stub_request(:any, /api.github.com/).to_rack(TestGitHub)
   end
 
   config.order = :random

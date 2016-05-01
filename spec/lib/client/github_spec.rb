@@ -21,7 +21,7 @@ RSpec.describe Client::Github, type: :feature do
     end
 
     it 'returns the correct username' do
-      expect(@gh_client.user.login).to eq('BargainsNDealz')
+      expect(@gh_client.user.first.login).to eq('BargainsNDealz')
     end
   end
 end

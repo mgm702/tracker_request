@@ -15,7 +15,7 @@ RSpec.describe GithubApi::BranchImport, type: :feature do
 
   describe '.branches_to_db' do
     it 'Saves the correct number of branches to the DB' do
-      expect(@branches.count).to eq(3)
+      expect(@branches.count).to eq(2)
     end
 
     it 'Saves the correct branch name from the Github API' do

@@ -11,7 +11,7 @@ RSpec.describe GithubApi::RepoImport, type: :feature do
 
   describe ".repositories_to_db" do
     it 'Saves the correct amount of repositories in DB' do
-      expect(Repository.where(user_id: @user.id).all.count).to eq(2)
+      expect(Repository.where(user_id: @user.id).all.count).to eq(1)
     end
 
     it 'Saves the correct repository name from the Github API' do
@@ -19,7 +19,7 @@ RSpec.describe GithubApi::RepoImport, type: :feature do
     end
 
     it 'Saves the correct repository id from the Github API' do
-      expect(@repos.first.repo_github_ident).to eq(30048480)
+      expect(@repos.first.repo_github_ident).to eq(47528869)
     end
 
     it 'Saves whether the repository has been forked or not' do
