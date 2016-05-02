@@ -61,6 +61,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'launchy'
   gem 'looksee'
+  gem 'webmock'
 end
 
 group :development do
