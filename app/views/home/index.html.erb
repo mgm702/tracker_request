@@ -1,77 +1,29 @@
-<div class ="container full-screen">
- <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="home-page jumbotron">
-      <div class="container">
-        <h1>Welcome to Tracker Request!</h1>
-        <p>If you use Pivotal Tracker and Github, then you have to check out Tracker Request. This web application will provide the user interface that you didn't even know you needed. Dont believe me, give it a try and see for yourself!</p>
-        <p>
-        <%= link_to button_tag('Sign In!', class: 'btn  btn-primary btn-lg main-button'), '/auth/github' %>
-        </p>
-      </div>
-    </div>
-</div> <!-- /container full-screen -->
-
 <div class="container">
-      <!-- Example row of columns -->
-      <div class="row header-info">
-        <div class="col-md-4">
-          <h2 class="header-icons"><i class="fa fa-database"></i></h2>
-          <p> Tracker Request uses highly sophisticated API calls to gather and process user information. We receive tons of data that is seperated by user and component. We love all of the products both companies have to offer and we try to incorporate as much as possible into our console.</p>
-        </div>
-        <div class="col-md-4">
-          <h2 class="header-icons"><i class="fa fa-code-fork"></i></h2>
-          <p> This application was built for code and code management. We also believe in the Agile development process and the value it brings to the software community. We are able to bring you the best product available because we love and use these products everday.</p>
-       </div>
-        <div class="col-md-4">
-          <h2 class="header-icons"><i class="fa fa-lock"></i></h2>
-          <p> If you need to know one thing about Tracker Request, it's that the application is safe. All of your personal data is stored encrypted in our databases. That way we can ensure safe API calls to your favorite services. </p>
-        </div>
-      </div>
-
-     <!-- START THE FEATURETTES -->
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Github Transparency. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">We love Github and we think their contribution to the code community is beyond measure. A dedicated place to host code repositories is something that has forever changed the software industry. Our goal is to bring their amazing features with our own brand of style and sophistication.</p>
-        </div>
-        <div class="col-md-5 feature-img">
-          <%= image_tag("TR-Github.png") %>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Pivotal Tracker Transparency. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5 col-md-pull-7 feature-img">
-          <%= image_tag("TR-Pivotal.png") %>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">All Brought Together for your Benefit! <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5 feature-img">
-          <%= image_tag("banner-user") %>
-        </div>
-      </div>
-
-
-      <!-- /END THE FEATURETTES -->
-      <hr>
-
-      <footer>
-        <p>&copy; 2015 Company, Inc.</p>
-      </footer>
+  <div class="row">
+    <div class="col-lg-9 main-text">
+      <h2>Track Git is a simple tool that helps manage Github and Pivotal Tracker workflow.</h2>
+      <%= link_to button_tag('Sign In!', class: 'btn  btn-primary btn-lg'), '/auth/github' %>
+    </div>
+  </div>
+  <div class="row site-info">
+    <div class="col-lg-4">
+      <span class="glyphicon glyphicon glyphicon-flash" aria-hidden="true"></span>
+      <h4>Fast</h4>
+      <p>This lightweight Rails application is proof of concept that Pivotal Tracker and Github workflows can benefit from working together in one environment.</p>
+    </div>
+    <div class="col-lg-4">
+      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+      <h4>Reliable</h4>
+      <p>This application is hosted on Heroku, one of the best cloud service providers in the world.
+    </div>
+    <div class="col-lg-4">
+      <span class="glyphicon glyphicon glyphicon-globe" aria-hidden="true"></span>
+      <h4>Open Source</h4>
+      <p>The entire project is hosted on Github, and pull requests are encouraged! Together we can make this the best workflow tool in the open source system.</p>
+    </div>
+  </div>
 </div> <!-- /container -->
+
+
+
 

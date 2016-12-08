@@ -2,7 +2,6 @@ module OmniAuthMock
   class User
     include Capybara::DSL
     def current_user
-      Capybara.default_host = 'http://127.0.0.1:3000'
       OmniAuth.config.test_mode = true
       OmniAuth.config.mock_auth[:github] = {
         provider: 'github',

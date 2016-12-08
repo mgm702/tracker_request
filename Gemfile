@@ -52,15 +52,18 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec', require: false
   gem 'guard-bundler'
-  gem 'factory_girl_rails'
-  gem 'capybara'
-  gem 'faker'
   gem 'bcrypt'
+  gem 'faker'
   gem 'sqlite3'
-  gem 'shoulda-matchers'
   gem 'quiet_assets'
   gem 'launchy'
   gem 'looksee'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+end
+
+group :test do
   gem 'webmock'
 end
 
